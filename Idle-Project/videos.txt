@@ -1,0 +1,25 @@
+1,Hereditary,Horror,A24,10,image.png
+2,Umma,Horror,Raimi Productions,10,image.png
+3,The Witch,Horror,Scythia Films,10,image.png
+4,Coraline,Horror,Laika,10,image.png
+5,The Unholy,Horror,Ghost House Pictures,10,image.png
+6,The Lost City,Romance,Exhibit A Pictures,10,image.png
+7,365 Days: This Day,Romance,Netflix,10,image.png
+8,The In Between,Romance,Paramount Players,10,imange.png
+9,A Whisker Away,Romance,Studio Colorido,10,image.png
+10,Beauty and the Beast,Romance,Walt Disney Pictures,10,image.png
+11,The Adam Project,Sci-Fi,Skydance Media,10,image.png
+12,The Matrix Resurrections,Sci-Fi,Warner Bros,10,image.png
+13,Eternals,Sci-Fi,Marvel,10,image.png
+14,The Tomorrow War,Sci-Fi,Paramount,10,image.png
+15,Infinite,Sci-Fi,Paramount,10,image.png
+16,Morbius,Action,Marvel,10,image.png
+17,Uncharted,Action,Columbia Pictures,10,image.png
+18,Black Widow,Action,Marvel,10,image.png
+19,The Lost City,Action,Fortis Films,10,image.png
+20,Fast and Furious 9,Action,Universal Pictures,10,image.png
+21,Hotel Transylvania: Transformania,Comedy,Columbia Pictures,10,image.png
+22,The Hustle,Comedy,Metro-Goldwyn-Mayer,10,image.png
+23,Free Guy,Comedy,Berlanti Productions,10,image.png
+24,Turning Red,Comedy,Walt Disney Pictures,10,image.png
+25,Don't Look Up,Comedy,Hyperobject Industries,10,image.png
