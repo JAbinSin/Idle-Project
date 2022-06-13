@@ -6,7 +6,7 @@ To Compile:
 - Open the terminal in the Directory of the local `Idle-Project`
 - Run the following command in the terminal `g++ main.cpp videos.cpp customers.cpp customer-rent.cpp -o main.exe`
 
-You can now run the program with the name as `main.exe`
+You can now run the program with the name `main.exe`
 
 ---
 Default Value of the `.txt` files: 
