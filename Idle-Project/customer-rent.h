@@ -1,4 +1,3 @@
-// This file would all hold the ADT for the Custmer Parent ADT
 #pragma once
 #include <string>
 #include "videos.h"
@@ -7,6 +6,7 @@ namespace ns
 {
     class CustomerRentList {
         private:
+            // This Structure would be a Stack
             struct CustomerRentNode {
                 int customerId;
                 int videoId;
@@ -15,11 +15,12 @@ namespace ns
             CustomerRentNode *top;
             int stackSize;
         public:
-            CustomerRentList();
-            ~CustomerRentList();
-            void customerRentPush(int cusId, int vidId);
-            void customerRentPop(int id, VideoList &v);
-            void customerRentList(int id);
-            bool isEmpty();
+        	// The Codes below are a public Function
+            CustomerRentList(); // Constructor
+            ~CustomerRentList(); // Deconstructor
+            void customerRentPush(int cusId, int vidId); // Insertion of Customer Rent
+            void customerRentPop(int id, VideoList &v); // Removal of Customer Rent
+            void customerRentList(int id, VideoList &v); // Details of Customer Rent
+            bool isEmpty(); // Check if the Structure CustomerRentNode is not Empty
     };
 }

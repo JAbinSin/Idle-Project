@@ -1,4 +1,3 @@
-// This file would all hold the ADT for the Video ADT
 #pragma once
 #include <string>
 
@@ -16,7 +15,7 @@ namespace ns
 				std::string videoImage;
 			    struct VideoNode *next;
 		   	};
-		   	VideoNode *head, *current;
+		   	VideoNode *head;
         public:
 			// The Codes below are the public Function
 	        VideoList(); // Constructor
@@ -25,7 +24,7 @@ namespace ns
 		    void rentVideo(int id); // Renting a Video
 		    void returnVideo(int id); // Return all the video that the Customer rent/s
 		    void videoDetails(int id); // Details about the specified Video using Video ID
-			void videoRentDetails(int id); // Would output the Movie Title and Number of Copies, of the specific user
+			void videoRentDetails(int id); // Would display the Movie Title and Number of Copies, of the specific user
             void videoList(); // List all the Video and their Details
 			void videoAvailableDetail(int id); // Check if the Video is Available by looking at the Number of Copies
 			int autoVideoIdIncrement(); // For the Auto Generation of Video ID    
