@@ -1,0 +1,10 @@
+1,John Alvin Cruz,Taytay Rizal
+2,Earl Rodney Escario,Blank
+3,Eunice Anne garcia,Blank
+4,Christian Al Niemo,Antipolo Rizal
+5,Ronnie Bughao,Taytay Rizal
+6,Dave Zate,Cainta Rizal
+7,Aaron Arriola,Pasig City
+8,Dennmark Dalida,Taytay Rizal
+9,Juan Miguel Robles,Pasig City
+10,Ian De Guzman,Pasig City
