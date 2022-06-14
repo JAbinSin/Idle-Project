@@ -11,9 +11,12 @@ int mainMenu();
 int maintenanceMenu();
 
 int main() {
+    // Set the Variable for the Objects
 	VideoList vidList;
     CustomerList cusList;
     CustomerRentList cusRentList;
+
+    // Local Variable
 	int choice, vidId, customerID, copies, temp;
 	string title, genre, production, image, qa, name, address;
     bool loop = true;
@@ -133,7 +136,7 @@ int main() {
                     cout << "[7-3] LIST ALL VIDEOS RENTED BY A CUSTOMER" << endl << endl;
                     cout << "Customer ID: ";
                     cin >> customerID;
-                    cusRentList.customerRentList(customerID);
+                    cusRentList.customerRentList(customerID, vidList);
                     system("pause");
 
                 } else if(choice == 4) {
