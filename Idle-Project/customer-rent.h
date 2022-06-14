@@ -15,7 +15,7 @@ namespace ns
             CustomerRentNode *top;
             int stackSize;
         public:
-        	// The Codes below are a public Function
+           	// The Codes below are a public Function
             CustomerRentList(); // Constructor
             ~CustomerRentList(); // Deconstructor
             void customerRentPush(int cusId, int vidId); // Insertion of Customer Rent

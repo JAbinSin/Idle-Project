@@ -29,14 +29,14 @@ CustomerRentList::CustomerRentList() {
             // Store the data from the customer-rent.txt to the local variables
             getline(file, customerId, ',');
             getline(file, videoId, '\n');
-
+            
             // If the data is not empty
-			if(!customerId.empty()) {
+            if(!customerId.empty()) {
                 // Insert the data from the local variable to the Customer Rent Stack
-				cId = stoi(customerId);
+                cId = stoi(customerId);
                 vId = stoi(videoId);
-				customerRentPush(cId, vId);
-			}
+                customerRentPush(cId, vId);
+            }
         }
     } else {
         // Display an Error when the customersrent-.txt file cannot be accessed
@@ -45,7 +45,7 @@ CustomerRentList::CustomerRentList() {
     }
 
     // Close the file
-	file.close();
+    file.close();
 }
 
 // Deconstructor
@@ -61,20 +61,20 @@ CustomerRentList::~CustomerRentList()  {
     // Check if the file can be access, otherwise not display an error
     if(file.is_open()) {
         // Loop while there is a Node in the Customer Rent Stack
-		while (nodePtr) {
+        while (nodePtr) {
             // Save the data in the format of:
             // Customer Id,Video Id
-			file << nodePtr->customerId << "," << nodePtr->videoId << endl;
-			nodePtr = nodePtr->next;
-		}
-	} else {
+            file << nodePtr->customerId << "," << nodePtr->videoId << endl;
+            nodePtr = nodePtr->next;
+        }
+    } else {
         // Display an Error when the customersrent-.txt file cannot be accessed
         cout << "\nError customers-rent.txt cannot be opened." << endl;
         system("pause");
     }
 
     // Close the file
-	file.close();
+    file.close();
 }
 
 // This function is called when the user Rent a Video
@@ -93,7 +93,7 @@ void CustomerRentList::customerRentPush(int cusId, int vidId) {
         top = newNode;
         newNode->next = NULL;
     } else {
-    // Otherwise, insert NewNode before top
+        // Otherwise, insert NewNode before top
         newNode->next = top;
         top = newNode;
     }

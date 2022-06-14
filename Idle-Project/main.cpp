@@ -12,22 +12,23 @@ int maintenanceMenu();
 
 int main() {
     // Set the Variable for the Objects
-	VideoList vidList;
+    VideoList vidList;
     CustomerList cusList;
     CustomerRentList cusRentList;
 
     // Local Variable
-	int choice, vidId, customerID, copies, temp;
-	string title, genre, production, image, qa, name, address;
+    int choice, vidId, customerID, copies, temp;
+    string title, genre, production, image, qa, name, address;
     bool loop = true;
 
 	do {
-		choice = mainMenu();
-		system("cls");
-		if (choice == 1) {
+        choice = mainMenu();
+        system("cls");
+        
+        if (choice == 1) {
             //For the New Video
-			cout << "[1] NEW VIDEO" << endl << endl;
-			cout << "Video ID: " << vidList.autoVideoIdIncrement() << endl;
+            cout << "[1] NEW VIDEO" << endl << endl;
+            cout << "Video ID: " << vidList.autoVideoIdIncrement() << endl;
             cout << "Movie Title: ";
             cin.ignore();
             getline(cin, title);
@@ -44,9 +45,10 @@ int main() {
             vidList.insertVideo(0, title, genre, production, copies, image);
             cout << endl << endl;
             system("pause");
-		} else if (choice == 2)	{
+
+        } else if (choice == 2)	{
             // For Rent a Video
-			cout << "[2] RENT A MOVIE" << endl << endl;
+            cout << "[2] RENT A MOVIE" << endl << endl;
             cout << "Customer ID: ";
             cin >> customerID;
             cusList.customerDetails(customerID);
@@ -70,16 +72,18 @@ int main() {
             } while(loop);
             loop = true;
             system("\npause");
-		} else if (choice == 3) {
+
+        } else if (choice == 3) {
             // For Return of Video
-			cout << "[3] RETURN A MOVIE" << endl << endl;
-			cout << "Customer ID: ";
-			cin >> customerID;
+            cout << "[3] RETURN A MOVIE" << endl << endl;
+            cout << "Customer ID: ";
+            cin >> customerID;
             cusList.customerDetails(customerID);
             cout << "\n\nVides Rented...." << endl;
             cusRentList.customerRentPop(customerID, vidList);
             system("pause");
-		} else if (choice == 4) {
+
+        } else if (choice == 4) {
             // For showing the Specific Details of a Video
             cout << "[4] SHOW VIDEO DETAILS" << endl << endl;
             cout << "Video ID: ";
@@ -87,12 +91,14 @@ int main() {
             vidList.videoDetails(vidId);
             cout << endl << endl;
             system("pause");
-		} else if (choice == 5) {
+
+        } else if (choice == 5) {
             // For displaying all the videos
             cout << "[5] DISPLAY ALL VIDEOS" << endl << endl;
             vidList.videoList();
             system("pause");
-		} else if (choice == 6) {
+
+        } else if (choice == 6) {
             // For checking the availability of video
             // Video Copy should be greater than 0 to be Available
             cout << "[6] CHECK VIDEO AVAILABILITY" << endl << endl;
@@ -101,7 +107,8 @@ int main() {
             vidList.videoAvailableDetail(vidId);
             cout << endl << endl;
             system("pause");
-		} else if (choice == 7) {
+
+        } else if (choice == 7) {
             // For Customer Maintinance Menu
             do {
                 choice = maintenanceMenu();
@@ -145,46 +152,50 @@ int main() {
                     system("pause");
                 }
             } while(choice != 4);
-		} else if (choice == 8)	{
-			vidList.~VideoList();
+
+        } else if (choice == 8)	{
+            // Exit of Program
+            // Dequeue all the 3 Structures/Class
+            vidList.~VideoList();
             cusList.~CustomerList();
             cusRentList.~CustomerRentList();
-			exit(0);
-		} else {
-			cout << "Invalid Input!" << endl << endl;
+            exit(0);
+        } else {
+            cout << "Invalid Input!" << endl << endl;
             system("pause");
-		}
-		cout << endl;
-	} while (choice != 8);
+        }
+        
+        cout << endl;
+    } while (choice != 8);
 }
 
 
 int mainMenu() {
     int choice;
-	system("cls");
-	cout << " << Video System >> " << endl << endl;
-	cout << "[1] New Video" << endl;
-	cout << "[2] Rent a Video" << endl;
-	cout << "[3] Return a Video" << endl;
-	cout << "[4] Show Video Details" << endl;
+    system("cls");
+    cout << " << Video System >> " << endl << endl;
+    cout << "[1] New Video" << endl;
+    cout << "[2] Rent a Video" << endl;
+    cout << "[3] Return a Video" << endl;
+    cout << "[4] Show Video Details" << endl;
     cout << "[5] Display all Videos" << endl;
-	cout << "[6] Check Video Availability" << endl;
+    cout << "[6] Check Video Availability" << endl;
     cout << "[7] Customer Maintinance" << endl;
     cout << "[8] Exit Program" << endl << endl;
-	cout << "Enter Choice: ";
-	cin >> choice;
-	return(choice);
+    cout << "Enter Choice: ";
+    cin >> choice;
+    return(choice);
 }
 
 int maintenanceMenu() {
-	int choice;
-	system("cls");
-	cout << " << Customer Maintinance >> " << endl << endl;
-	cout << "[1] Add New Customer" << endl;
-	cout << "[2] Show Customer Details" << endl;
-	cout << "[3] List of Videos Rented by a Customer" << endl;
-	cout << "[4] Back" << endl;
-	cout << "Enter Choice: ";
-	cin >> choice;
-	return(choice);
+    int choice;
+    system("cls");
+    cout << " << Customer Maintinance >> " << endl << endl;
+    cout << "[1] Add New Customer" << endl;
+    cout << "[2] Show Customer Details" << endl;
+    cout << "[3] List of Videos Rented by a Customer" << endl;
+    cout << "[4] Back" << endl;
+    cout << "Enter Choice: ";
+    cin >> choice;
+    return(choice);
 }

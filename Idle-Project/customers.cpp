@@ -30,11 +30,11 @@ CustomerList::CustomerList(void) {
             getline(file, address, '\n');
 
             // If the data is not empty
-			if(!id.empty()) {
+            if(!id.empty()) {
                 // Insert the data from the local variable to the Customer Queue
-				cId = stoi(id);
-				customerEnqueue(cId, name, address);
-			}
+                cId = stoi(id);
+                customerEnqueue(cId, name, address);
+            }
         }
     } else {
         // Display an Error when the customers.txt file cannot be accessed
@@ -43,7 +43,7 @@ CustomerList::CustomerList(void) {
     }
 
     // Close the file
-	file.close();
+    file.close();
 }
 
 // Deconstructor
@@ -59,26 +59,26 @@ CustomerList::~CustomerList() {
     // Check if the file can be access, otherwise not display an error
     if(file.is_open()) {
         // Loop while there is a Node in the Customer Queue
-		while (nodePtr) {
+        while (nodePtr) {
             // Save the data in the format of:
             // Id,Name,Address
-			file << nodePtr->customerId << "," << nodePtr->customerName << "," << nodePtr->customerAddress << endl;
-			nodePtr = nodePtr->next;
-		}
-	} else {
+            file << nodePtr->customerId << "," << nodePtr->customerName << "," << nodePtr->customerAddress << endl;
+            nodePtr = nodePtr->next;
+        }
+    } else {
         // Display an Error when the customers.txt file cannot be accessed
         cout << "\nError customers.txt cannot be opened." << endl;
         system("pause");
     }
 
     // Close the file
-	file.close();
+    file.close();
 }
 
 // Used for the Auto Incremention of the Customer ID
 int CustomerList::autoCustomerIdIncrement() {
     // Set the variables for the Customer Queue
-	CustomerNode *nodePtr;
+    CustomerNode *nodePtr;
     nodePtr = front;
 
     // Local Variable
@@ -89,8 +89,9 @@ int CustomerList::autoCustomerIdIncrement() {
         // Loop and get the Highest Customer Id
         if(nodePtr->customerId > id)
             id = nodePtr->customerId;
-		nodePtr = nodePtr->next;
+        nodePtr = nodePtr->next;
     }
+
     // Return the highest id with an increment
     return id+1;
 }
@@ -106,12 +107,12 @@ void CustomerList::customerEnqueue(int cusId, string name, string address) {
     // The cusId default value when inserting is 0
     // But when getting the data from the customer.txt it would diretcly insert the data
     if(cusId == 0) {
-		//Get the next Customer ID
-    	id = autoCustomerIdIncrement();
-	} else {
+        //Get the next Customer ID
+        id = autoCustomerIdIncrement();
+    } else {
         // Get the direct value
-		id = cusId;
-	}
+        id = cusId;
+    }
 
     // Allocate a new node & store the Data
     newNode = new CustomerNode;
@@ -121,7 +122,7 @@ void CustomerList::customerEnqueue(int cusId, string name, string address) {
     newNode->next = NULL;
 
     // If there are no nodes in the Customer Queue
-	// Insert the data into the front/first node
+    // Insert the data into the front/first node
     if (isEmpty()) {
         front = newNode;
         rear = newNode;

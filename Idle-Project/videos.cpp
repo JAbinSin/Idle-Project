@@ -8,11 +8,11 @@ using namespace ns;
 // Constructor
 VideoList::VideoList() {
     // Set the Head of the Video Linked List to NULL
-	head = NULL;
+    head = NULL;
 
     // Local Variables
     string title, genre, production, id, copies, image;
-	int cId, cCopies;
+    int cId, cCopies;
 
     // Set the path for the videos.txt file/csv
     // File Read
@@ -32,12 +32,12 @@ VideoList::VideoList() {
             getline(file, image, '\n');
             
             // If the data is not empty
-			if(!id.empty()) {
+            if(!id.empty()) {
                 // Insert the data from the local variable to the Video Linked List
-				cId = stoi(id);
-				cCopies = stoi(copies);
-				insertVideo(cId, title, genre, production, cCopies, image);
-			}
+                cId = stoi(id);
+                cCopies = stoi(copies);
+                insertVideo(cId, title, genre, production, cCopies, image);
+            }
         }
     } else {
         // Display an Error when the videos.txt file cannot be accessed
@@ -46,7 +46,7 @@ VideoList::VideoList() {
     }
 
     // Close the file
-	file.close();
+    file.close();
 }
 
 // Deconstructur
@@ -62,20 +62,20 @@ VideoList::~VideoList() {
     // Check if the file can be access, otherwise not display an error
 	if(file.is_open()) {
         // Loop while there is a Node in the Video Linked List
-		while (nodePtr) {
+        while (nodePtr) {
             // Save the data in the format of:
             // Id,Title,Genre,Production,Copies,Image
-			file << nodePtr->videoId << "," << nodePtr->videoTitle << "," << nodePtr->videoGenre << "," << nodePtr->videoProduction << "," << nodePtr->videoCopies << "," << nodePtr->videoImage << endl;
-			nodePtr = nodePtr->next;
-		}
-	} else {
+            file << nodePtr->videoId << "," << nodePtr->videoTitle << "," << nodePtr->videoGenre << "," << nodePtr->videoProduction << "," << nodePtr->videoCopies << "," << nodePtr->videoImage << endl;
+            nodePtr = nodePtr->next;
+        }
+    } else {
         // Display an Error when the videos.txt file cannot be accessed
         cout << "\nError videos.txt cannot be opened." << endl;
         system("pause");
     }
 
     // Close the file
-	file.close();
+    file.close();
 }
 
 // Used for the Auto Incremention of the Video ID
@@ -101,26 +101,25 @@ int VideoList::autoVideoIdIncrement() {
 
 // This function is used to insert a New Movie into the Video Linked List
 void VideoList::insertVideo(int vidId, string title, string genre, string production, int copies, string image) {
-	// Set the variables for the Video Linked List
+    // Set the variables for the Video Linked List
     VideoNode *newNode, *nodePtr, *previousNode;
 
     // Local Variable
-	int id;
+    int id;
 
     // The vidId default value when inserting is 0
     // But when getting the data from the videos.txt it would diretcly insert the data
-	if(vidId == 0) {
+    if(vidId == 0) {
         // Get the next Video ID
-    	id = autoVideoIdIncrement();
-	} else {
+        id = autoVideoIdIncrement();
+    } else {
         // Get the direct value
-		id = vidId;
-	}
+        id = vidId;
+    }
     
-
-	// Allocate a new node & store the Data
-	newNode = new VideoNode;
-	newNode->videoId = id;
+    // Allocate a new node & store the Data
+    newNode = new VideoNode;
+    newNode->videoId = id;
     newNode->videoTitle = title;
     newNode->videoGenre = genre;
     newNode->videoProduction = production;
@@ -130,29 +129,29 @@ void VideoList::insertVideo(int vidId, string title, string genre, string produc
 	// If there are no nodes in the VideoNode
 	// make the first node
 	if (!head) {
-		head = newNode;
-		newNode->next = NULL;
+        head = newNode;
+        newNode->next = NULL;
 	} else { 
         // Otherwise, insert a new node.
-		// Initialize nodePtr to head of list
-		nodePtr = head;
-		previousNode = NULL;
-
-		// Skip all nodes whose value member is less than num.
-		while (nodePtr != NULL && nodePtr->videoId < id) {
-			previousNode = nodePtr;
-			nodePtr = nodePtr->next;
+        // Initialize nodePtr to head of list
+        nodePtr = head;
+        previousNode = NULL;
+        
+        // Skip all nodes whose value member is less than num.
+        while (nodePtr != NULL && nodePtr->videoId < id) {
+            previousNode = nodePtr;
+            nodePtr = nodePtr->next;
+        }
+        // If the new mode is to be the 1st in the list,
+        // insert it before all other nodes.
+        if (previousNode == NULL) {
+            head = newNode;
+            newNode->next = nodePtr;
+        } else {
+            previousNode->next = newNode;
+            newNode->next = nodePtr;
 		}
-		// If the new mode is to be the 1st in the list,
-		// insert it before all other nodes.
-		if (previousNode == NULL) {
-			head = newNode;
-			newNode->next = nodePtr;
-		} else {
-			previousNode->next = newNode;
-			newNode->next = nodePtr;
-		}
-	}
+    }
 }
 
 // This function is called when the user Return a Video
@@ -219,7 +218,7 @@ void VideoList::videoRentDetails(int id) {
         if(nodePtr->videoId == id) {
             temp = nodePtr->videoCopies;
             cout << "Movie Title: " << nodePtr->videoTitle << endl;
-			cout << "Number of Copies: " << --temp << endl;
+            cout << "Number of Copies: " << --temp << endl;
             empty = false;
         }
         nodePtr = nodePtr->next;
@@ -236,30 +235,30 @@ void VideoList::videoList() {
     VideoNode *nodePtr;
 
     // If there is no data in the 1st node of the Video Link List
-	if (head == NULL)
-		cout << "The Video list is empty!" << endl;
-	else {
+    if (head == NULL)
+    	cout << "The Video list is empty!" << endl;
+    else {
         // Set the start of the node to the head or the 1st node of the Video Link List
-		nodePtr = head;
-
+        nodePtr = head;
+        
         // Traverse through the Video Linked List
-		while (nodePtr) {
+        while (nodePtr) {
             // Display All the Details of the Video
-			cout << "Video ID: " << nodePtr->videoId << endl;
+            cout << "Video ID: " << nodePtr->videoId << endl;
             cout << "Movie Title: " << nodePtr->videoTitle << endl;
             cout << "Genre: " << nodePtr->videoGenre << endl;
             cout << "Production: " << nodePtr->videoProduction << endl;
             cout << "Number of Copies: " << nodePtr->videoCopies << endl;
             cout << "Movie Image:" << nodePtr->videoImage << endl << endl;
-			nodePtr = nodePtr->next;
-		}
-	}
+            nodePtr = nodePtr->next;
+        }
+    }
 }
 
 // This function is called when the user Rent a Video
 void VideoList::rentVideo(int id) {
     // Set the variables for the Video Linked List
-	VideoNode *nodePtr;
+    VideoNode *nodePtr;
     nodePtr = head;
 
     // Traverse through the Video Linked List
@@ -277,7 +276,7 @@ void VideoList::rentVideo(int id) {
 // This function checks if there is a still a Copy left of the Video
 void VideoList::videoAvailableDetail(int id) {
     // Set the variables for the Video Linked List
-	VideoNode *nodePtr;
+    VideoNode *nodePtr;
     nodePtr = head;
 
     // Local Variables
@@ -309,17 +308,17 @@ void VideoList::videoAvailableDetail(int id) {
         cout << "\nNo Video with similar Video ID Found!" << endl;
 }
 
-// 
+// This function is called to check if the video is Available
 bool VideoList::videoAvailable(int id) {
     // Set the variables for the Video Linked List
-	VideoNode *nodePtr;
+    VideoNode *nodePtr;
     nodePtr = head;
 
     // Local Variable
-	bool available = false;
+    bool available = false;
 
     // Traverse through the Video Linked List
-	while (nodePtr) {
+    while (nodePtr) {
         // If the exact Video Id is found in the Video Link List
         if(nodePtr->videoId == id)
             // Check if the number of copies is greater than 0
@@ -327,14 +326,14 @@ bool VideoList::videoAvailable(int id) {
                 available = true;
         nodePtr = nodePtr->next;
     }
-	return available;
+    return available;
 }
 
 // This function is called when the user need to find the video title
 // Need an argument of Video Id
 string VideoList::videoTitle(int id) {
     // Set the variables for the Video Linked List
-	VideoNode *nodePtr;
+    VideoNode *nodePtr;
     nodePtr = head;
 
     // Local Variable
@@ -348,5 +347,5 @@ string VideoList::videoTitle(int id) {
             temp = nodePtr->videoTitle;
         nodePtr = nodePtr->next;
     }
-	return temp;
+    return temp;
 }
