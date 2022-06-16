@@ -2,8 +2,9 @@
 
 To Compile:
 
-- Download the `Idle-Project` Folder
-- Open the terminal in the Directory of the local `Idle-Project`
+- Download the file as ZIP `Code -> Download ZIP`
+- Extract the folder `Code` in the ZIP file
+- Open the terminal in the directory of the Folder `Code`, or navigate to the folder
 - Run the following command in the terminal `g++ main.cpp videos.cpp customers.cpp customer-rent.cpp -o main.exe`
 
 You can now run the program with the name `main.exe`
