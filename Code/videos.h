@@ -1,8 +1,7 @@
 #pragma once
 #include <string>
 
-namespace ns
-{
+namespace ns {
 	class VideoList	{
 	   	private:
 	   	// This Structure would be a Linked List

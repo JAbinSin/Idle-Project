@@ -2,8 +2,7 @@
 #include <string>
 #include "videos.h"
 
-namespace ns
-{
+namespace ns {
     class CustomerRentList {
         private:
             // This Structure would be a Stack
