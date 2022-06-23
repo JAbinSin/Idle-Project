@@ -1,1 +1,25 @@
 1,Hereditary,Horror,A24,10,images\Hereditary.png
+2,Umma,Horror,Raimi Production,10,images\Umma.png
+3,The Witch,Horror,Scythia Films,10,images\The Witch.png
+4,Coraline,Horror,Laika,10,images\Coraline.png
+5,The Unholy,Horror,Ghost House Pictures,10,images\The Unholy.png
+6,The Lost City,Romance,Exhibit A Pictures,10,images\The Lost City.png
+7,365 Days This Day,Romance,Netflix,10,images\365 Days This Day.png
+8,The In Between,Romance,Paramount,10,images\The In Between.png
+9,A Whisker Away,Romance,Studio Colorido,10,images\A Whisker Away.png
+10,Beauty and the Beast,Romance,Walt Disney Pictures,10,images\Beauty and the Beast.png
+11,The Adam Project,Sci-Fi,Skydance Media,10,images\The Adam Project.png
+12,The Matrix Resurrections,Sci-Fi,Warner Bros,10,images\The Matrix Resurrections.png
+13,Eternals,Sci-Fi,Marvel,10,images\Eternals.png
+14,The Tomorrow War,Sci-Fi,Paramount,10,images\The Tomorrow War.png
+15,Infinite,Sci-Fi,Paramount,10,images\Infinite.png
+16,Morbius,Action,Marvel,10,images\Morbius.png
+17,Uncharted,Action,Columbia Pictures,10,images\Uncharted.png
+18,Black Widow,Action,Marvel,10,images\Black Widow.png
+19,The King's Man,Action,Marvs Studio,10,images\The King's Man.png
+20,Fast and Furious 9,Action,Universal Pictures,10,images\Fast and Furious 9.png
+21,Hotel Transylvania Transformania,Comedy,Columbia Pictures,10,images\Hotel Transylvania Transformania.png
+22,The Hustle,Comedy,Metro-Goldwyn-Mayer,10,images\The Hustle.png
+23,Free Guy,Comedy,Berlanti Productions,10,images\Free Guy.png
+24,Turning Red,Comedy,Walt Disney Pictures,10,images\Turning Red.png
+25,Don't Look Up,Comedy,Hyperobject Industries,10,images\Don't Look Up.png
