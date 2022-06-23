@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <windows.h>
 #include "videos.h"
 
 using namespace std;
@@ -59,13 +60,30 @@ VideoList::~VideoList() {
     // File Write
     ofstream file("videos.txt");
 
+    // Local Variable
+    bool bFile;
+    string sFile, dFile;
+
     // Check if the file can be access, otherwise not display an error
 	if(file.is_open()) {
         // Loop while there is a Node in the Video Linked List
         while (nodePtr) {
+            // This function is used to Copy the file from the source to the destination images folder
+            sFile = nodePtr->videoImage;
+            dFile = "images\\" + nodePtr->videoTitle + ".png";
+            bFile = CopyFileA(sFile.c_str(), dFile.c_str(), TRUE);
+            // Exclude Error 80, Means file already exist cannot override
+            // https://docs.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-
+            if(!bFile && GetLastError() != 80) {
+                cout << "Error Copying File: " << sFile << endl;
+                cout << "Error Code: " << GetLastError() << endl;
+                system("pause");
+                cout << endl;
+            }
+
             // Save the data in the format of:
             // Id,Title,Genre,Production,Copies,Image
-            file << nodePtr->videoId << "," << nodePtr->videoTitle << "," << nodePtr->videoGenre << "," << nodePtr->videoProduction << "," << nodePtr->videoCopies << "," << nodePtr->videoImage << endl;
+            file << nodePtr->videoId << "," << nodePtr->videoTitle << "," << nodePtr->videoGenre << "," << nodePtr->videoProduction << "," << nodePtr->videoCopies << "," << dFile << endl;
             nodePtr = nodePtr->next;
         }
     } else {
@@ -190,6 +208,7 @@ void VideoList::videoDetails(int id) {
             cout << "Production: " << nodePtr->videoProduction << endl;
             cout << "Number of Copies: " << nodePtr->videoCopies << endl;
             cout << "Movie Image: " << nodePtr->videoImage << endl;
+            system(nodePtr->videoImage.c_str());
             empty = false;
         }
         nodePtr = nodePtr->next;
