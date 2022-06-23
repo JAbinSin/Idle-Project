@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <windows.h>
+#include <iomanip>
 #include "videos.h"
 
 using namespace std;
@@ -260,15 +261,16 @@ void VideoList::videoList() {
         // Set the start of the node to the head or the 1st node of the Video Link List
         nodePtr = head;
         
+        // Open the Directory where the Images should be located
+        system("explorer images");
+
+        // Set the formatting for the display
+        cout << setw(10) << left << "Video ID" << setw(35) << "Movie Title" << setw(10) << "Genre" << setw(25) << "Production" << setw(35) << "Image" << endl;
+        
         // Traverse through the Video Linked List
         while (nodePtr) {
             // Display All the Details of the Video
-            cout << "Video ID: " << nodePtr->videoId << endl;
-            cout << "Movie Title: " << nodePtr->videoTitle << endl;
-            cout << "Genre: " << nodePtr->videoGenre << endl;
-            cout << "Production: " << nodePtr->videoProduction << endl;
-            cout << "Number of Copies: " << nodePtr->videoCopies << endl;
-            cout << "Movie Image:" << nodePtr->videoImage << endl << endl;
+            cout << setw(10) << nodePtr->videoId << setw(35) << nodePtr->videoTitle  << setw(10) << nodePtr->videoGenre << setw(25) << nodePtr->videoProduction << setw(35) << nodePtr->videoImage << endl;
             nodePtr = nodePtr->next;
         }
     }
