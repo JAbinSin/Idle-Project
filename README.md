@@ -2,7 +2,7 @@
 
 To Compile:
 
-- Download the file as ZIP `Code -> Download ZIP`
+- Download the file as ZIP `Code -> Download ZIP` or [Download](https://github.com/JAbinSin/Idle-Project/archive/refs/heads/main.zip)
 - Extract the folder `Code` in the ZIP file
 - Open the terminal in the directory of the Folder `Code`, or navigate to the folder
 - Run the following command in the terminal `g++ main.cpp videos.cpp customers.cpp customer-rent.cpp -o main.exe`
