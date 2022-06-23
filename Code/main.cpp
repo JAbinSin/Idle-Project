@@ -7,6 +7,7 @@
 using namespace std;
 using namespace ns;
 
+// Menu Functions
 int mainMenu();
 int maintenanceMenu();
 
