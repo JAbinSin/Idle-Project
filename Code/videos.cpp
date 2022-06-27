@@ -135,6 +135,14 @@ void VideoList::insertVideo(int vidId, string title, string genre, string produc
         // Get the direct value
         id = vidId;
     }
+
+    // Check if the vidId already exist in the Video Linked List
+    // If true display an error and stop the function from inserting the data
+    if(videoIdDuplicate(vidId)) {
+        cout << "Video Id Already Exist" << endl;
+        system("pause");
+        return;
+    }
     
     // Allocate a new node & store the Data
     newNode = new VideoNode;
@@ -208,7 +216,7 @@ void VideoList::videoDetails(int id) {
             cout << "Genre: " << nodePtr->videoGenre << endl;
             cout << "Production: " << nodePtr->videoProduction << endl;
             cout << "Number of Copies: " << nodePtr->videoCopies << endl;
-            cout << "Movie Image: " << nodePtr->videoImage << endl;
+            cout << "Movie Image: " << nodePtr->videoTitle + ".png" << endl;
             system(nodePtr->videoImage.c_str());
             empty = false;
         }
@@ -265,12 +273,12 @@ void VideoList::videoList() {
         system("explorer images");
 
         // Set the formatting for the display
-        cout << setw(10) << left << "Video ID" << setw(35) << "Movie Title" << setw(10) << "Genre" << setw(25) << "Production" << setw(35) << "Image" << endl;
+        cout << setw(10) << left << "Video ID" << setw(35) << "Movie Title" << setw(10) << "Genre" << setw(25) << "Production" << setw(35) << "Image [Directory is \\images]" << endl;
         
         // Traverse through the Video Linked List
         while (nodePtr) {
             // Display All the Details of the Video
-            cout << setw(10) << nodePtr->videoId << setw(35) << nodePtr->videoTitle  << setw(10) << nodePtr->videoGenre << setw(25) << nodePtr->videoProduction << setw(35) << nodePtr->videoImage << endl;
+            cout << setw(10) << nodePtr->videoId << setw(35) << nodePtr->videoTitle  << setw(10) << nodePtr->videoGenre << setw(25) << nodePtr->videoProduction << setw(35) << nodePtr->videoTitle + ".png" << endl;
             nodePtr = nodePtr->next;
         }
     }
@@ -369,4 +377,20 @@ string VideoList::videoTitle(int id) {
         nodePtr = nodePtr->next;
     }
     return temp;
+}
+
+bool VideoList::videoIdDuplicate(int id) {
+    // Set the variables for the Video Linked List
+    VideoNode *nodePtr;
+    nodePtr = head;
+
+    // Traverse through the Video Linked List
+    while (nodePtr) {
+        // If the Video Id already exist in the Video Linked List
+        // Return true
+        if(nodePtr->videoId == id)
+            return true;
+        nodePtr = nodePtr->next;
+    }
+    return false;
 }

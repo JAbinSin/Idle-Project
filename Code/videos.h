@@ -29,5 +29,6 @@ namespace ns {
 			int autoVideoIdIncrement(); // For the Auto Generation of Video ID
 			bool videoAvailable(int id); // Would return true if the video has 1 or more number of copies
 			std::string videoTitle(int id); // Would return the title of the specific video
+			bool videoIdDuplicate(int id); // Used to check if the Video Id already exist
 	};
 }

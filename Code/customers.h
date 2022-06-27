@@ -22,5 +22,6 @@ namespace ns {
             void customerDetails(int id); // Display all the customer details
             bool isEmpty(); // Check if the Structure CustomerNode is not Empty
             int autoCustomerIdIncrement(); // For the Auto Generation of Video ID
+            bool customerIdDuplicate(int id); // Used to check if the Customer Id already exist
     };
 }

@@ -101,7 +101,7 @@ void CustomerList::customerEnqueue(int cusId, string name, string address) {
     // Set the variables for the Customer Queue
     CustomerNode *newNode;
 
-    // Local Vatiable 
+    // Local Variable 
     int id;
 
     // The cusId default value when inserting is 0
@@ -112,6 +112,14 @@ void CustomerList::customerEnqueue(int cusId, string name, string address) {
     } else {
         // Get the direct value
         id = cusId;
+    }
+
+    // Check if the cusId already exist in the Customer Queue
+    // If true display an error and stop the function from inserting the data
+    if(customerIdDuplicate(cusId)) {
+        cout << "Customer Id Already Exist" << endl;
+        system("pause");
+        return;
     }
 
     // Allocate a new node & store the Data
@@ -174,4 +182,20 @@ bool CustomerList::isEmpty() {
         status = true;
     
     return status;
+}
+
+bool CustomerList::customerIdDuplicate(int id) {
+    // Set the variables for the Customer Linked List
+    CustomerNode *nodePtr;
+    nodePtr = front;
+
+    // Traverse through the Customer Queue
+    while (nodePtr) {
+        // If Customer Id already exist in the Customer Queue
+        // Return true
+        if(nodePtr->customerId == id)
+            return true;
+        nodePtr = nodePtr->next;
+    }
+    return false;
 }
